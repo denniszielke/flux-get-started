@@ -1,0 +1,53 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-logger
+  namespace: demo
+  labels:
+    app: podinfo
+  annotations:
+    flux.weave.works/automated: "true"
+    flux.weave.works/tag.init: regex:^3.10.*
+    flux.weave.works/tag.podinfod: semver:~2.1
+spec:
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: dummy-logger
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+      labels:
+        app: dummy-logger
+    spec:
+      containers:
+      - name: dummy-logger
+        image: denniszielke/dummy-logger:latest 
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        env:
+        - name: METRICRESET
+          value: "5"
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 80
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
