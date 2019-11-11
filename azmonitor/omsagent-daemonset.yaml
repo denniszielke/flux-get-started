@@ -43,7 +43,6 @@ spec:
           secretKeyRef:
             name: arcsecret
             key: arcresourceid
-         value: 
        - name: CONTROLLER_TYPE
          value: "DaemonSet"
        - name: NODE_IP
@@ -85,6 +84,7 @@ spec:
         periodSeconds: 60
    nodeSelector:
     beta.kubernetes.io/os: linux
+    kubernetes.io/role: agent
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - operator: "Exists"
