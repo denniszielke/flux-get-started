@@ -37,6 +37,8 @@ spec:
         env:
         - name: METRICRESET
           value: "5"
+        - name: Dummy
+          value: "5"
         livenessProbe:
           httpGet:
             path: /ping
