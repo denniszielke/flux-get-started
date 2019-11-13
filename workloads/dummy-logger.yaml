@@ -11,7 +11,7 @@ metadata:
     flux.weave.works/tag.init: regex:^3.10.*
     flux.weave.works/tag.podinfod: semver:~2.1
 spec:
-  replicas: 3
+  replicas: 5
   strategy:
     rollingUpdate:
       maxUnavailable: 0
@@ -38,7 +38,7 @@ spec:
         - name: METRICRESET
           value: "5"
         - name: Dummy
-          value: "5"
+          value: "2"
         livenessProbe:
           httpGet:
             path: /ping
