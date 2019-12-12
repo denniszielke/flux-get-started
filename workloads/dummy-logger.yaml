@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: dummy-logger
-        image: denniszielke/dummy-logger:latest 
+        image: denniszielke/dummy-logger:new
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
