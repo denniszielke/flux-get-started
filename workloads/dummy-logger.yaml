@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dummy-logger
+  name: dummy-logger1
   namespace: demo
   labels:
     app: podinfo
