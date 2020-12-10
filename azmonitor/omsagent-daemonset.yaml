@@ -83,7 +83,7 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux
+    kubernetes.io/os: linux
     kubernetes.io/role: agent
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
