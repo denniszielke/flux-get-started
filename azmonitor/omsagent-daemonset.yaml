@@ -82,9 +82,6 @@ spec:
          - "/opt/livenessprobe.sh"
         initialDelaySeconds: 60
         periodSeconds: 60
-   nodeSelector:
-    kubernetes.io/os: linux
-    kubernetes.io/role: agent
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - operator: "Exists"
