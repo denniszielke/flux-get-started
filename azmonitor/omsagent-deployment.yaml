@@ -86,7 +86,7 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux
+    kubernetes.io/os: linux
    affinity:
      nodeAffinity:
        requiredDuringSchedulingIgnoredDuringExecution:
