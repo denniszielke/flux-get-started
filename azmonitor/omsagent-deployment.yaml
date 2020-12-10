@@ -85,8 +85,6 @@ spec:
          - "/opt/livenessprobe.sh"
         initialDelaySeconds: 60
         periodSeconds: 60
-   nodeSelector:
-    kubernetes.io/os: linux
    affinity:
      nodeAffinity:
        requiredDuringSchedulingIgnoredDuringExecution:
